@@ -7,14 +7,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<title>Title</title>
+
+<title>Reddit Scrapper</title>
+<div class="jumbotron text-center">Reddit Scrapper</div>
 </head>
 <body>
 <!--<h1>This is deployed</h1>-->
 <!--<h2>abarglowski</h2>-->
-<div id = "main">
-    <div class = "nav-div">
-        <nav class = "navBar">
+<div id = "main" class = "container row">
+        
+    <div class = "nav-div col-md-1 align-self-start order-first">
+        <nav class = "navBar align-left">
             <div class = "navBar-header">
                 <!--logo goes here-->
             </div>
@@ -28,16 +31,17 @@
             </div>
         </nav>
     </div>
+<div class="col-md-8 ml-5 pl-5"><div id="reddit-dump"></div></div>   
 
-<footer class = "now-playing-bar">
+<footer class = "now-playing-bar fixed-bottom order-last bg-danger">
 <div class = "now-playing-bar-container">
 <div class = "now-playing-bar-left"></div>
 <div class="now-playing-bar-center">
     <div class="player-controls-button">
-        <button title = "enable shuffle" class = "suffleButton"></button>
-        <button title = "previous" class = "previousButton"></button>
-        <button title = "play" class = "playButton"></button>
-        <button title = "enable repeat" class = "repeatButton"></button>
+        <button title = "enable shuffle" class = "suffleButton pb-2"></button>
+        <button title = "previous" class = "previousButton pb-2"></button>
+        <button title = "play" class = "playButton pb-2"></button>
+        <button title = "enable repeat" class = "repeatButton pb-2"></button>
     </div>
 </div>
 <div class="now-playing-bar-right"></div>
@@ -45,21 +49,11 @@
 
 
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="assets/js/getRedditData.js"></script>
 </body>
 </html>
