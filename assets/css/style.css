@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     box-sizing: border-box;
 }
@@ -32,13 +33,16 @@ body, button, input {
     background-color: rgba(0,0,0,0.8);
     overflow-y: auto;
     min-height: 0px !important;
-    height: calc(-90px + 100vh);
+    height: calc(-45px + 100vh);
 }
 
 footer{
     flex-shrink: none;
-    position: absolute;
-    height: calc(-750px + 100vh);
+    position: sticky bottom;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    height: calc(-700px + 100vh);
     overflow: hidden;
     background-color: #f5f5f5;
 }
@@ -57,3 +61,6 @@ footer{
     margin-right: 50px;
 }
 
+#navList{
+    list-style-type: none;
+}
