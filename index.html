@@ -6,17 +6,79 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<<<<<<< HEAD
+
 <link rel="stylesheet" href="assets/css/style.css">
 =======
-<link rel="stylesheet" href="assets/styles/style.css">
->>>>>>> edad4fc9b4664775f23deaa4caabd9d5765e29d1
+ edad4fc9b4664775f23deaa4caabd9d5765e29d1
 <title>Title</title>
 </head>
+
+<div class="jumbotron jumbotron-fluid d-flex flex-column align-items-center justify-content-center">
+  <h1>Spotify API Tools</h1>
+  <button class="btn btn-lg btn-success" id="login-button">Login</button>
+  <div id="music-player">
+    <h3 id="track"></h3>
+    <h4 id="artist" class="text-muted"></h4>
+    <span id="prev-button"><i class="fas fa-angle-left"></i></span>
+    <span id="play-button" data-state="play"><i class="fas fa-play"></i></span>
+    <span id="next-button"><i class="fas fa-angle-right"></i></span>
+  </div>
+</div>
+
+<div class="container-fluid my-5" id="app-body">
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <div id="profile-info">
+
+      </div>
+      <div id="user-buttons" class="my-3">
+        <div class="btn btn-primary btn-block" id="user-playlists">Get User Playlists</div>
+        <div class="btn btn-info btn-block" id="featured-playlists">Get Featured Playlists</div>
+        <form id="categories" class="mt-4">
+          <h4>Select Categories to Search For</h4>
+          <div class="form-group">
+            <select class="form-control" id="categories-list"></select>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9">
+      <div class="row" id="music_info">
+        <div class="col-12 col-md-6 mb-5">
+          <div class="card">
+            <div class="card-header">
+              Select Playlist
+            </div>
+            <div id="playlist-info" class="list-group list-group-flush">
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-5">
+          <div class="card">
+            <div class="card-header">
+              Select Track
+            </div>
+            <div class="list-group list-group-flush" id="track-info">
+              Select Playlist to Show Tracks
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h1>Adding random garbage here</h1>
 <div id="reddit-dump"></div>
 <body>
+rishabh
+<h1>This is deployed</h1>
+
+
+=======
 <main class="container-fluid">
   <div class="jumbotron jumbotron-fluid bg-success">Reddit-Scraper/Spotify Uploader</div>
 <div class="row">
@@ -43,10 +105,13 @@
   </div>
 </footer>
 </main>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/getRedditData.js"></script>
+<script src="assets/js/addingSpotifyAuthentication.js"></script>
 </body>
 </html>
