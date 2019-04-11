@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+body, button, input {
+
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    color: #b3b3b3;
+    text-transform: none;
+}
+
+[dir-ltr] .nav-div{
+    left: 0px;
+}
+
+.nav-div, .navBar-header{
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+}
+
+.nav-div{
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    z-index: 4;
+    background-color: rgba(0,0,0,0.8);
+    overflow-y: auto;
+    min-height: 0px !important;
+    height: calc(-90px + 100vh);
+}
+
+#main{
+    width: 100%;
+}
