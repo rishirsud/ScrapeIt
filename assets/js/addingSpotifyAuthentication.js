@@ -77,8 +77,27 @@ if (access_token && (state == null || state !== storedState)) {
         $("#profile-info").html(`<h3>${response.display_name}</h3>`);
         // <img class="img-fluid" src="${response.images[0].url}"/>
       });
+      
+
+      $("#make-playlists").on("click", function(){
+        $.ajax({
+          url: `https://api.spotify.com/v1/users/${userId}/playlists`,
+          method: "POST",
+          data: {
+            name: JSON.stringify({name: "test", public: true})
+          },
+          headers: {
+            'Authorization': "Bearer " + access_token
+          },
+          success: function(response){
+            console.log(response)
+          }
+        });
+      });
+      
   }
 }
+
 
 // turn on spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -455,3 +474,5 @@ $(document)
       $("#app-body").hide();
     } 
   });
+
+
