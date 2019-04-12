@@ -34,7 +34,9 @@
       <div id="user-buttons" class="my-3">
         <div class="btn btn-primary btn-block" id="user-playlists">Get User Playlists</div>
         <div class="btn btn-info btn-block" id="featured-playlists">Get Featured Playlists</div>
-        <div class="btn btn-success btn-block" id="make-playlists">Make a Playlist</div>
+        <!-- Button trigger modal and add playlist form -->
+        <div class="btn btn-success btn-block" id="make-playlists">Make
+          a Playlist</div>
         <form id="categories" class="mt-4">
           <h4>Select Categories to Search For</h4>
           <div class="form-group">
@@ -72,22 +74,53 @@
   </div>
 </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="playlistModal" tabindex="-1" role="dialog" aria-labelledby="makePlaylistModal"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playlistModalLabel">Create a playlist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nameYourPlaylist">Playlist Name</label>
+          <input type="text" class="form-control" id="nameYourPlaylist" placeholder="Name your playlist">
+        </div>
+        <div class="form-group">
+          <label for="descYourPlaylist">Playlist Name</label>
+          <input type="text" class="form-control" id="descYourPlaylist" placeholder="Auto generated playlist from reddit data." readonly>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">Cancel</button>
+        <button type="button" id="submitPlaylistForm" class="btn btn-success">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <body>
 
   <!-- <h1>This is deployed</h1> -->
 
- 
+
   <footer class="footer">SOME FOOTER TEXT<footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/getRedditData.js"></script>
-  <script src="assets/js/spotifyDoStuff.js"></script>
-  <script src="assets/js/addingSpotifyAuthentication.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <script src="assets/js/script.js"></script>
+      <script src="assets/js/getRedditData.js"></script>
+      <script src="assets/js/spotifyDoStuff.js"></script>
+      <script src="assets/js/addingSpotifyAuthentication.js"></script>
 </body>
 
 </html>
