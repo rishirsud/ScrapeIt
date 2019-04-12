@@ -1,64 +1,223 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
+
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet" href="assets/css/style.css">
 
-<title>Reddit Scrapper</title>
-<div class="jumbotron text-center">Reddit Scrapper</div>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+  <title>Title</title>
+
 </head>
+
+
+
+<div class="jumbotron jumbotron-fluid d-flex flex-column align-items-center justify-content-center">
+
+  <h1>Spotify API Tools</h1>
+
+  <button class="btn btn-lg btn-success" id="login-button">Login</button>
+
+  <div id="music-player">
+
+    <h3 id="track"></h3>
+
+    <h4 id="artist" class="text-muted"></h4>
+
+    <span id="prev-button"><i class="fas fa-angle-left"></i></span>
+
+    <span id="play-button" data-state="play"><i class="fas fa-play"></i></span>
+
+    <span id="next-button"><i class="fas fa-angle-right"></i></span>
+
+  </div>
+
+</div>
+
+
+
+<div class="container-fluid my-5" id="app-body">
+
+  <div class="row">
+
+    <div class="col-12 col-md-3">
+
+      <div id="profile-info">
+
+
+
+      </div>
+
+      <div id="user-buttons" class="my-3">
+
+        <div class="btn btn-primary btn-block" id="user-playlists">Get User Playlists</div>
+
+        <div class="btn btn-info btn-block" id="featured-playlists">Get Featured Playlists</div>
+
+        <form id="categories" class="mt-4">
+
+          <h4>Select Categories to Search For</h4>
+
+          <div class="form-group">
+
+            <select class="form-control" id="categories-list"></select>
+
+          </div>
+
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="col-12 col-md-9">
+
+      <div class="row" id="music_info">
+
+        <div class="col-12 col-md-6 mb-5">
+
+          <div class="card">
+
+            <div class="card-header">
+
+              Select Playlist
+
+            </div>
+
+            <div id="playlist-info" class="list-group list-group-flush">
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-12 col-md-6 mb-5">
+
+          <div class="card">
+
+            <div class="card-header">
+
+              Select Track
+
+            </div>
+
+            <div class="list-group list-group-flush" id="track-info">
+
+              Select Playlist to Show Tracks
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
 <body>
-<!--<h1>This is deployed</h1>-->
-<!--<h2>abarglowski</h2>-->
-<div id = "main" class = "container row">
-        
-    <div class = "nav-div col-0 align-self-start">
-        <nav class = "navBar align-left">
-            <div class = "navBar-header">
-                <!--logo goes here-->
-            </div>
-            <ul id = "navList">
-                <li class = "navBar-group"><!--home button-->home button</li>
-                <li class = "navBar-group"><!--search/add-->search/add</li>
-                <li class = "navBar-group"><!--browse-->browse</li>
-                <li class = "navbar-group"><button class = "btn btn-sm btn-success" id="login-button">login</button></li>
-            </ul>
-            <div class = "sessionInfo">
-                <!--sign in-->
-            </div>
-        </nav>
+
+
+
+  <!-- <h1>This is deployed</h1> -->
+
+
+
+  <main class="container-fluid">
+
+    <div class="jumbotron jumbotron-fluid bg-success">Reddit-Scraper/Spotify Uploader</div>
+
+    <div class="row">
+
+      <nav class="col-12 col-md-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ut consequuntur
+
+        neque. Fugiat minus, optio quam similique vel hic nihil ullam molestiae, iure exercitationem eum. Expedita
+
+        corrupti pariatur quisquam animi.</nav>
+
+
+
+      <div class="col-12 col-md-9">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam numquam harum dicta!
+
+        Quasi unde enim praesentium ratione mollitia! Odit minima error vel nulla pariatur doloribus iure ipsum
+
+        molestias ratione doloremque!</div>
+
+
+
+
+
     </div>
-<div id class="col-md-8 ml-5 pl-5"><div id="reddit-dump"></div></div>   
-
-<footer class = "now-playing-bar fixed-bottom bg-danger">
-<div class = "now-playing-bar-container">
-<div class = "now-playing-bar-left"></div>
-<div class="now-playing-bar-center">
-    <div class="player-controls-button row">
-        <div class = "col-md-6"></div>
-        <button title = "enable shuffle" class = "suffleButton mt-5 ml-3"></button>
-        <button title = "previous" class = "previousButton mt-5 ml-3"></button>
-        <button title = "play" class = "playButton mt-5 ml-3"></button>
-        <button title = "enable repeat" class = "repeatButton mt-5 ml-3"></button>
-    </div>
-</div>
-<div class="now-playing-bar-right"></div>
-</div>
 
 
-</footer>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-<script src="https://sdk.scdn.co/spotify-player.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/getRedditData.js"></script>
-<script src="assets/js/addingSpotifyAuthentication.js"></script>
+
+    <!-- GARBAGE -->
+
+    <br>
+
+    <hr>
+
+    <h1>Adding random garbage here</h1>
+
+    <div id="reddit-dump"></div>
+
+    <!-- END GARBAGE -->
+
+
+
+  </main>
+
+  <footer class="footer">SOME FOOTER TEXT<footer>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+  <script src="assets/js/script.js"></script>
+
+  <script src="assets/js/getRedditData.js"></script>
+
+  <script src="assets/js/addingSpotifyAuthentication.js"></script>
+
 </body>
+
+
+
 </html>
