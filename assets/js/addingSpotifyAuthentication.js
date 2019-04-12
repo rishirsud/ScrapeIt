@@ -89,7 +89,7 @@ if (access_token && (state == null || state !== storedState)) {
 
 $("#make-playlists").on("click", function () {
   $("#playlistModal").modal("toggle");
-})
+});
 
 // turn on spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -483,6 +483,7 @@ $(document)
     $("#modalCancel").on("click", function(){
       $("#playlistModal").modal("toggle");
     });
+    getRedditTitles();
     if (!access_token) {
       $("#app-body").hide();
     }
