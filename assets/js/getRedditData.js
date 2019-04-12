@@ -1,10 +1,10 @@
 // Get json of r/listentothis top 24 hours
 // take data, filter titles and then save them to an array 
 // which will get passed to Spotify to make a playlist out of.
+const redditTitles = [];
 
 try {
   // Array to put reddit post titles into.
-  const redditTitles = [];
 
   $.getJSON(
     "https://www.reddit.com/r/listentothis/top.json?sort=top&t=day?limit=20", /* added limit to the request just incase */

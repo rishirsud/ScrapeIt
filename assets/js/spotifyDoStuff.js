@@ -1,4 +1,3 @@
-
 function doSearch() {
   // called in adingSpotifyAuthentication
   console.log("###############################");
@@ -25,27 +24,34 @@ function makePlaylist() {
   console.log(access_token);
   console.log(userId);
   console.log("Trying to make playlist");
+  let playlistNameInput = $("#nameYourPlaylist").val().trim();
   let playlistData = {
-    "name": $("#nameYourPlaylist").val().trim(),
+    "name": playlistNameInput,
     "description": "New playlist description",
     "public": true
   };
 
-  let playlistDataStringified = JSON.stringify(playlistData);
-  $.ajax({
-    url: `https://api.spotify.com/v1/users/${userId}/playlists`,
-    method: "POST",
-    headers: {
-      'Authorization': "Bearer " + access_token
-    },
-    data: playlistDataStringified
-  }).then(function (result) {
-    console.log("Made playlist");
-    console.log(result);
-    getUserPlaylists();
-  })
-  .catch(function (err) {
-    console.log(err);
-  })
-
+  if (playlistNameInput === "") {
+    console.warn("no playlist name")
+    $("#nameYourPlaylist").addClass("is-invalid");
+  } else {
+    $("#nameYourPlaylist").removeClass("is-invalid");
+    let playlistDataStringified = JSON.stringify(playlistData);
+    $.ajax({
+        url: `https://api.spotify.com/v1/users/${userId}/playlists`,
+        method: "POST",
+        headers: {
+          'Authorization': "Bearer " + access_token
+        },
+        data: playlistDataStringified
+      }).then(function (result) {
+        console.log("Made playlist");
+        console.log(result);
+        getUserPlaylists();
+      })
+      .catch(function (err) {
+        console.log(err);
+      })
+      $("#playlistModal").modal("toggle");
+  }
 };
