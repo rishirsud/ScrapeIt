@@ -80,10 +80,10 @@ if (access_token && (state == null || state !== storedState)) {
         // <img class="img-fluid" src="${response.images[0].url}"/>
 
       });
-
     doSearch();
   }
 }
+
 
 // turn on spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -477,5 +477,10 @@ $(document)
 
     if (!access_token) {
       $("#app-body").hide();
+
     }
   });
+
+    } 
+  });
+
