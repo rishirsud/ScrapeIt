@@ -25,17 +25,20 @@ function makePlaylist() {
   console.log(access_token);
   console.log(userId);
   console.log("Trying to make playlist");
+  var playlistData = {
+    "name": "New Playlist",
+    "description": "New playlist description",
+    "public": true
+  };
+
+  var playlistDataStringified = JSON.stringify(playlistData);
   $.ajax({
     url: `https://api.spotify.com/v1/users/${userId}/playlists`,
     method: "POST",
     headers: {
       'Authorization': "Bearer " + access_token
     },
-    data: {
-      "name": "New Playlist",
-      "description": "New playlist description",
-      "public": true
-    }
+    data: playlistDataStringified
   }).then(function (result) {
     console.log("Made playlist");
     console.log(result);
