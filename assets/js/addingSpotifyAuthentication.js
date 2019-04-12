@@ -75,7 +75,11 @@ if (access_token && (state == null || state !== storedState)) {
 
         userId = response.id;
         $("#profile-info").html(`<h3>${response.display_name}</h3>`);
-        makePlaylist();
+
+        $("#make-playlists").on("click", function () {
+          makePlaylist();
+          getUserPlaylists()
+        });
 
         // <img class="img-fluid" src="${response.images[0].url}"/>
 
