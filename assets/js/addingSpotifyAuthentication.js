@@ -76,9 +76,9 @@ if (access_token && (state == null || state !== storedState)) {
         userId = response.id;
         $("#profile-info").html(`<h3>${response.display_name}</h3>`);
 
-        $("#make-playlists").on("click", function () {
+        $("#submitPlaylistForm").on("click", function () {
           makePlaylist();
-          getUserPlaylists()
+          $("#playlistModal").modal("toggle");
         });
 
         // <img class="img-fluid" src="${response.images[0].url}"/>
@@ -88,6 +88,9 @@ if (access_token && (state == null || state !== storedState)) {
   }
 }
 
+$("#make-playlists").on("click", function() {
+  $("#playlistModal").modal("toggle");
+})
 
 // turn on spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {

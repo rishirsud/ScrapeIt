@@ -26,7 +26,7 @@ function makePlaylist() {
   console.log(userId);
   console.log("Trying to make playlist");
   let playlistData = {
-    "name": "New Playlist",
+    "name": $("#nameYourPlaylist").val().trim(),
     "description": "New playlist description",
     "public": true
   };
@@ -42,6 +42,7 @@ function makePlaylist() {
   }).then(function (result) {
     console.log("Made playlist");
     console.log(result);
+    getUserPlaylists();
   })
   .catch(function (err) {
     console.log(err);
