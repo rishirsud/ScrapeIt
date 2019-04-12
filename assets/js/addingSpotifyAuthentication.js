@@ -78,7 +78,6 @@ if (access_token && (state == null || state !== storedState)) {
 
         $("#submitPlaylistForm").on("click", function () {
           makePlaylist();
-          $("#playlistModal").modal("toggle");
         });
 
         // <img class="img-fluid" src="${response.images[0].url}"/>
@@ -88,7 +87,7 @@ if (access_token && (state == null || state !== storedState)) {
   }
 }
 
-$("#make-playlists").on("click", function() {
+$("#make-playlists").on("click", function () {
   $("#playlistModal").modal("toggle");
 })
 
@@ -481,7 +480,9 @@ $(document)
     // login button to get access token
     $('#login-button').on('click', spotifyLogin);
     $("#categories-list").on("change", selectCategories);
-
+    $("#modalCancel").on("click", function(){
+      $("#playlistModal").modal("toggle");
+    });
     if (!access_token) {
       $("#app-body").hide();
     }
