@@ -477,10 +477,5 @@ $(document)
 
     if (!access_token) {
       $("#app-body").hide();
-
     }
   });
-
-    } 
-  });
-
