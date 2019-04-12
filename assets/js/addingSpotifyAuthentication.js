@@ -82,24 +82,6 @@ if (access_token && (state == null || state !== storedState)) {
       });
 
     doSearch();
-    // console.log("###############################");
-    // // implement search functionality here
-    // console.log("authorized");
-    // let searchQuery = "Piano Man";
-    // let searchType = "track"; /* album, artist, playlist, track*/
-    // $.ajax({
-    //   url: `https://api.spotify.com/v1/search?query=${searchQuery}&type=${searchType}&limit=5`,
-    //   method: "GET",
-    //   headers: {
-    //     'Authorization': "Bearer " + access_token
-    //   }
-    // }).then(function (result) {
-    //   console.log("SOMETHING WORKED");
-    //   console.log(result);
-    // })
-    // .catch(function(err) {
-    //   console.log(err);
-    // })
   }
 }
 
