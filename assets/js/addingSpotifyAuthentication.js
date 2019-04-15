@@ -1,6 +1,7 @@
 const spotify_CLIENT = "92a0946328c54acba24e465dbfd53650";
 
 let stateKey = 'spotify_auth_state';
+let playlistID;
 console.log(location.hostname);
 
 // on load, try to pull access_token from URL parameters
@@ -212,6 +213,8 @@ function getUserPlaylists() {
     .then(function (response) {
       console.log(response);
       printPlaylistInfo(response.items);
+      playListID = response.items[0].id;
+      console.warn(playListID);
     })
 }
 
@@ -462,12 +465,12 @@ $(document)
   .ready(function () {
     var multiple = new Multiple({
       selector: 'body',
-      background: 'linear-gradient(#273463, #8B4256)'
+      background: 'linear-gradient(#04230c, #3cad5a)'
     });
 
     var multiple = new Multiple({
       selector: '.jumbotron',
-      background: 'linear-gradient(#273463, #8B4256)'
+      background: 'linear-gradient(#04230c, #3cad5a)'
     });
     
     
