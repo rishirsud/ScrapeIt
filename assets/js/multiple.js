@@ -1,6 +1,4 @@
-/*! Multiple.js - v0.0.1 - 2016-04-09
-* http://NeXTs.github.com/Multiple.js/
-* Copyright (c) 2015 Denis Lukov; Licensed MIT */
+
 
 ;(function(root, definition) {
     if (typeof module != 'undefined') module.exports = definition();
@@ -102,3 +100,7 @@
 
   return Multiple;
 }));
+
+/*! Multiple.js - v0.0.1 - 2016-04-09
+* http://NeXTs.github.com/Multiple.js/
+* Copyright (c) 2015 Denis Lukov; Licensed MIT */

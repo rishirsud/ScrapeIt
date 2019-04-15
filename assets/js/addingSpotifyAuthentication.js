@@ -465,13 +465,14 @@ function getFeaturedPlaylists() {
 // BIND CLICK EVENTS
 $(document)
   .ready(function () {
+    console.log("THIS IS WORKING")
     var multiple = new Multiple({
       selector: 'body',
       background: 'linear-gradient(#04230c, #3cad5a)'
     });
 
     var multiple = new Multiple({
-      selector: '.jumbotron',
+      selector: '.custom',
       background: 'linear-gradient(#04230c, #3cad5a)'
     });
 
