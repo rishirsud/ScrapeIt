@@ -465,12 +465,12 @@ $(document)
   .ready(function () {
     var multiple = new Multiple({
       selector: 'body',
-      background: 'linear-gradient(#273463, #8B4256)'
+      background: 'linear-gradient(#04230c, #3cad5a)'
     });
 
     var multiple = new Multiple({
       selector: '.jumbotron',
-      background: 'linear-gradient(#273463, #8B4256)'
+      background: 'linear-gradient(#04230c, #3cad5a)'
     });
     
     
