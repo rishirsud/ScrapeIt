@@ -77,13 +77,14 @@ if (access_token && (state == null || state !== storedState)) {
         $("#profile-info").html(`<h3>${response.display_name}</h3>`);
 
         $("#submitPlaylistForm").on("click", function () {
+          getRedditTitles();
           makePlaylist();
         });
 
         // <img class="img-fluid" src="${response.images[0].url}"/>
 
       });
-    doSearch();
+    // doSearch();
   }
 }
 
@@ -483,7 +484,7 @@ $(document)
     $("#modalCancel").on("click", function(){
       $("#playlistModal").modal("toggle");
     });
-    getRedditTitles();
+    // getRedditTitles();
     if (!access_token) {
       $("#app-body").hide();
     }
