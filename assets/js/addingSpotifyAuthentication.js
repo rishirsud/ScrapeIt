@@ -1,7 +1,8 @@
 const spotify_CLIENT = "92a0946328c54acba24e465dbfd53650";
 
 let stateKey = 'spotify_auth_state';
-let playlistID;
+let newPlaylistID;
+let globalUserID;
 console.log(location.hostname);
 
 // on load, try to pull access_token from URL parameters
@@ -75,6 +76,7 @@ if (access_token && (state == null || state !== storedState)) {
         $("#app-body").show();
 
         userId = response.id;
+        globalUserID = userId;
         $("#profile-info").html(`<h3>${response.display_name}</h3>`);
 
         $("#submitPlaylistForm").on("click", function () {
@@ -213,8 +215,8 @@ function getUserPlaylists() {
     .then(function (response) {
       console.log(response);
       printPlaylistInfo(response.items);
-      playListID = response.items[0].id;
-      console.warn(playListID);
+      newPlaylistID = response.items[0].id;
+      console.warn(newPlaylistID);
     })
 }
 
