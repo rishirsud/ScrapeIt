@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<link rel="stylesheet" href="assets/css/style.css">
-=======
- edad4fc9b4664775f23deaa4caabd9d5765e29d1
-<title>Title</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/Multiple.js/multiple.css">
+
+  <title>Title</title>
 </head>
 
 <div class="jumbotron jumbotron-fluid d-flex flex-column align-items-center justify-content-center">
@@ -34,6 +35,9 @@
       <div id="user-buttons" class="my-3">
         <div class="btn btn-primary btn-block" id="user-playlists">Get User Playlists</div>
         <div class="btn btn-info btn-block" id="featured-playlists">Get Featured Playlists</div>
+        <!-- Button trigger modal and add playlist form -->
+        <div class="btn btn-success btn-block" id="make-playlists">Make
+          a Playlist</div>
         <form id="categories" class="mt-4">
           <h4>Select Categories to Search For</h4>
           <div class="form-group">
@@ -47,7 +51,7 @@
     <div class="col-12 col-md-9">
       <div class="row" id="music_info">
         <div class="col-12 col-md-6 mb-5">
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-header">
               Select Playlist
             </div>
@@ -57,7 +61,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6 mb-5">
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-header">
               Select Track
             </div>
@@ -71,47 +75,57 @@
   </div>
 </div>
 
-<h1>Adding random garbage here</h1>
-<div id="reddit-dump"></div>
-<body>
-rishabh
-<h1>This is deployed</h1>
 
 
-=======
-<main class="container-fluid">
-  <div class="jumbotron jumbotron-fluid bg-success">Reddit-Scraper/Spotify Uploader</div>
-<div class="row">
-<nav class="col-12 col-md-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ut consequuntur neque. Fugiat minus, optio quam similique vel hic nihil ullam molestiae, iure exercitationem eum. Expedita corrupti pariatur quisquam animi.</nav>
-
-<div class="col-12 col-md-9">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam numquam harum dicta! Quasi unde enim praesentium ratione mollitia! Odit minima error vel nulla pariatur doloribus iure ipsum molestias ratione doloremque!</div>
-
-  
+<!-- Modal -->
+<div class="modal fade" id="playlistModal" tabindex="-1" role="dialog" aria-labelledby="makePlaylistModal"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playlistModalLabel">Create a playlist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nameYourPlaylist">Playlist Name</label>
+          <input type="text" class="form-control" id="nameYourPlaylist" placeholder="Name your playlist">
+        </div>
+        <div class="form-group">
+          <label for="descYourPlaylist">Playlist Description</label>
+          <input type="text" class="form-control" id="descYourPlaylist"
+            placeholder="Auto generated playlist from reddit data." readonly>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="modalCancel" class="btn btn-secondary">Cancel</button>
+        <button type="button" id="submitPlaylistForm" class="btn btn-success">Create</button>
+      </div>
+    </div>
+  </div>
 </div>
 
+<body>
+
+  <!-- <h1>This is deployed</h1> -->
 
 
+  <footer class="footer">
+    <div class="text-center">
+      SOME FOOTER TEXT
+    </div>
+    <footer>
 
-
-
-
-
-
-<footer class="footer">
-  <div class="container">
-    <span class="text-muted">
-      this is the footer
-    </span>
-  </div>
-</footer>
-</main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://sdk.scdn.co/spotify-player.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/getRedditData.js"></script>
-<script src="assets/js/addingSpotifyAuthentication.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <script src="assets/Multiple.js/multiple.min.js"></script>
+      <script src="assets/js/spotifyDoStuff.js"></script>
+      <script src="assets/js/addingSpotifyAuthentication.js"></script>
 </body>
+
 </html>

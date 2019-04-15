@@ -25,9 +25,9 @@ function getHashParams() {
   let e,
     r = /([^&;=]+)=?([^&;]*)/g,
     q = window
-      .location
-      .hash
-      .substring(1);
+    .location
+    .hash
+    .substring(1);
   while (e = r.exec(q)) {
     hashParams[e[1]] = decodeURIComponent(e[2]);
   }
@@ -75,10 +75,22 @@ if (access_token && (state == null || state !== storedState)) {
 
         userId = response.id;
         $("#profile-info").html(`<h3>${response.display_name}</h3>`);
+
+        $("#submitPlaylistForm").on("click", function () {
+          getRedditTitles();
+          makePlaylist();
+        });
+
         // <img class="img-fluid" src="${response.images[0].url}"/>
+
       });
+    // doSearch();
   }
 }
+
+$("#make-playlists").on("click", function () {
+  $("#playlistModal").modal("toggle");
+});
 
 // turn on spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -93,16 +105,24 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   });
 
   // Error handling
-  player.addListener('initialization_error', ({message}) => {
+  player.addListener('initialization_error', ({
+    message
+  }) => {
     console.error(message);
   });
-  player.addListener('authentication_error', ({message}) => {
+  player.addListener('authentication_error', ({
+    message
+  }) => {
     console.error(message);
   });
-  player.addListener('account_error', ({message}) => {
+  player.addListener('account_error', ({
+    message
+  }) => {
     console.error(message);
   });
-  player.addListener('playback_error', ({message}) => {
+  player.addListener('playback_error', ({
+    message
+  }) => {
     console.error(message);
   });
 
@@ -112,14 +132,18 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   });
 
   // Ready
-  player.addListener('ready', ({device_id}) => {
+  player.addListener('ready', ({
+    device_id
+  }) => {
     console.log('Ready with Device ID', device_id);
     playerId = device_id;
     setWebPlayer(device_id, access_token);
   });
 
   // Not Ready
-  player.addListener('not_ready', ({device_id}) => {
+  player.addListener('not_ready', ({
+    device_id
+  }) => {
     console.log('Device ID has gone offline', device_id);
   });
 
@@ -131,7 +155,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 function spotifyLogin() {
   const client_id = spotify_CLIENT; // Your client id
   console.log(location.hostname);
-  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://127.0.0.1:5500/" : 'https://jonahkarew.github.io/project1_master/'; 
+  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://127.0.0.1:5500/" : 'https://jonahkarew.github.io/project1_master/';
 
   // generate random state key
   const state = generateRandomString(16);
@@ -140,7 +164,7 @@ function spotifyLogin() {
   localStorage.setItem(stateKey, state);
   // Set scope for authentication privileges
   const scope = 'streaming user-read-birthdate user-read-private user-read-email user-read-playba' +
-      'ck-state user-modify-playback-state';
+    'ck-state user-modify-playback-state playlist-modify-public playlist-modify-private';
 
   // build out super long url
   let url = 'https://accounts.spotify.com/authorize';
@@ -157,9 +181,11 @@ function spotifyLogin() {
 // SET SPOTIFY WEB PLAYER TO BROWSER
 function setWebPlayer(playerId, access_token) {
   $.ajax({
-    url: "https://api.spotify.com/v1/me/player",
-    method: "PUT",
-    data: JSON.stringify({"device_ids": [playerId]}),
+      url: "https://api.spotify.com/v1/me/player",
+      method: "PUT",
+      data: JSON.stringify({
+        "device_ids": [playerId]
+      }),
       headers: {
         'Authorization': "Bearer " + access_token
       }
@@ -196,7 +222,10 @@ function printPlaylistInfo(playlistArray) {
   playlistArray.forEach(function (playlist) {
     $("<button>")
       .addClass("list-group-item d-flex justify-content-between align-items-center playlist-button list-group-item-action")
-      .attr({"data-playlist-id": playlist.id, "data-playlist-uri": playlist.uri})
+      .attr({
+        "data-playlist-id": playlist.id,
+        "data-playlist-uri": playlist.uri
+      })
       .text(playlist.name)
       .append(`<span class="badge badge-danger badge-pill">${playlist.tracks.total}</span>`)
       .appendTo($playlistInfo);
@@ -244,7 +273,10 @@ function printTrackInfo(trackArray, playlistContextUri) {
     $("<button>")
       .addClass("list-group-item d-flex justify-content-between align-items-center track-button list-group-item-action")
       .text(`${artists} - ${track.name}`)
-      .attr({"data-track-uri": track.uri, "data-context": playlistContextUri})
+      .attr({
+        "data-track-uri": track.uri,
+        "data-context": playlistContextUri
+      })
       .append(`<span class="badge badge-danger badge-pill">${moment(track.duration_ms, "x").format("mm:ss")}</span>`)
       .appendTo($trackInfo);
   });
@@ -258,14 +290,14 @@ function selectTrack() {
   const contextUri = $(this).attr("data-context");
   console.log(trackId);
   $.ajax({
-    url: `https://api.spotify.com/v1/me/player/play?device_id=${playerId}`,
-    method: "PUT",
-    data: JSON.stringify({
-      "offset": {
-        "uri": trackId
-      },
-      "context_uri": contextUri
-    }),
+      url: `https://api.spotify.com/v1/me/player/play?device_id=${playerId}`,
+      method: "PUT",
+      data: JSON.stringify({
+        "offset": {
+          "uri": trackId
+        },
+        "context_uri": contextUri
+      }),
       headers: {
         'Authorization': "Bearer " + access_token
       }
@@ -362,7 +394,7 @@ function getCurrentSong() {
     headers: {
       'Authorization': "Bearer " + access_token
     }
-  }).then(function(response) {
+  }).then(function (response) {
     const trackUri = response.item.uri;
     console.log(response.item);
     console.log(trackUri)
@@ -381,9 +413,9 @@ function getCategories() {
     headers: {
       'Authorization': "Bearer " + access_token
     }
-  }).then(function(response) {
+  }).then(function (response) {
     // print to left column select box
-    response.categories.items.forEach(function(category) {
+    response.categories.items.forEach(function (category) {
       $("<option>")
         .val(category.id)
         .text(category.name)
@@ -404,7 +436,7 @@ function selectCategories(event) {
     headers: {
       'Authorization': "Bearer " + access_token
     }
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     printPlaylistInfo(response.playlists.items);
   });
@@ -418,7 +450,7 @@ function getFeaturedPlaylists() {
     headers: {
       'Authorization': "Bearer " + access_token
     }
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     printPlaylistInfo(response.playlists.items);
   })
@@ -428,18 +460,28 @@ function getFeaturedPlaylists() {
 // BIND CLICK EVENTS
 $(document)
   .ready(function () {
+    var multiple = new Multiple({
+      selector: 'body',
+      background: 'linear-gradient(#273463, #8B4256)'
+    });
+
+    var multiple = new Multiple({
+      selector: '.jumbotron',
+      background: 'linear-gradient(#273463, #8B4256)'
+    });
+    
+    
     // get categories on load
     getCategories();
     $("#user-playlists").on("click", getUserPlaylists);
     $("#featured-playlists").on("click", getFeaturedPlaylists);
-    $("#play-button").on("click", function() {
+    $("#play-button").on("click", function () {
       // get state of button
       const buttonState = $(this).data("state");
 
       if (buttonState === "play") {
         pauseSong();
-      } 
-      else if (buttonState === "pause") {
+      } else if (buttonState === "pause") {
         resumeSong();
       }
     });
@@ -450,8 +492,11 @@ $(document)
     // login button to get access token
     $('#login-button').on('click', spotifyLogin);
     $("#categories-list").on("change", selectCategories);
-
+    $("#modalCancel").on("click", function(){
+      $("#playlistModal").modal("toggle");
+    });
+    // getRedditTitles();
     if (!access_token) {
       $("#app-body").hide();
-    } 
+    }
   });
