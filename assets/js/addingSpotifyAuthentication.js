@@ -1,6 +1,7 @@
 const spotify_CLIENT = "92a0946328c54acba24e465dbfd53650";
 
 let stateKey = 'spotify_auth_state';
+let playlistID;
 console.log(location.hostname);
 
 // on load, try to pull access_token from URL parameters
@@ -212,6 +213,8 @@ function getUserPlaylists() {
     .then(function (response) {
       console.log(response);
       printPlaylistInfo(response.items);
+      playListID = response.items[0].id;
+      console.warn(playListID);
     })
 }
 

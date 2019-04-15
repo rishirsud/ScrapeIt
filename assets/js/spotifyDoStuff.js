@@ -132,6 +132,7 @@ function makePlaylist() {
         console.log("Made playlist");
         console.log(result);
         getUserPlaylists();
+        console.warn(playListID);
       })
       .catch(function (err) {
         console.log(err);
