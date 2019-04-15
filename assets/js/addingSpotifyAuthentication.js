@@ -472,6 +472,11 @@ $(document)
       selector: '.jumbotron',
       background: 'linear-gradient(#04230c, #3cad5a)'
     });
+
+    var multiple = new Multiple({
+      selector: '.footer',
+      background: 'linear-gradient(#04230c, #3cad5a)'
+    });
     
     
     // get categories on load
