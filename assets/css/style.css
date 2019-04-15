@@ -23,6 +23,10 @@ body{
      
  }
 
+ #music_info {
+    margin-top: 48px;
+ }
+
  h1, h3, h4 {
      color: white;
      font-family: 'Montserrat', sans-serif;
