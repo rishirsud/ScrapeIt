@@ -1,8 +1,8 @@
 // Get json of r/listentothis top 24 hours
 // take data, filter titles and then save them to an array 
 // which will get passed to Spotify to make a playlist out of.
-const redditTitles = [];
-const urisArray = [];
+let redditTitles = [];
+let urisArray = [];
 // try {
 // Array to put reddit post titles into.
 function getRedditTitles() {
@@ -30,8 +30,8 @@ function getRedditTitles() {
     } // end of function postTitles
   ).then(function () {
 
-    console.warn(redditTitles);
-    console.warn(redditTitles.length)
+    // console.warn(redditTitles);
+    // console.warn(redditTitles.length)
 
     searchTrackUri(0);
 
@@ -81,7 +81,7 @@ function searchTrackUri(index) {
     .catch(function (err) {
       console.log(err);
     });
-  console.log(urisArray);
+  // console.log(urisArray);
 }
 
 // Makes a playlist on spotify using the user inputted name
@@ -138,8 +138,10 @@ function addSongsToPlaylist() {
       },
       data: uriStringified
     }).then(function () {
-      getUserPlaylists();
       console.log("added songs to playlist");
+      urisArray = [];
+      redditTitles = [];
+      getUserPlaylists();
     });
   } catch (error) {
     console.error(error);
