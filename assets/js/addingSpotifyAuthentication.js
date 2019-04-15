@@ -460,6 +460,17 @@ function getFeaturedPlaylists() {
 // BIND CLICK EVENTS
 $(document)
   .ready(function () {
+    var multiple = new Multiple({
+      selector: 'body',
+      background: 'linear-gradient(#273463, #8B4256)'
+    });
+
+    var multiple = new Multiple({
+      selector: '.jumbotron',
+      background: 'linear-gradient(#273463, #8B4256)'
+    });
+    
+    
     // get categories on load
     getCategories();
     $("#user-playlists").on("click", getUserPlaylists);
