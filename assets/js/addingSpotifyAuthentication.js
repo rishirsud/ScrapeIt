@@ -226,13 +226,13 @@ function printPlaylistInfo(playlistArray) {
   $playlistInfo.empty();
   playlistArray.forEach(function (playlist) {
     $("<button>")
-      .addClass("list-group-item d-flex justify-content-between align-items-center playlist-button list-group-item-action")
+      .addClass("bg-dark text-light list-group-item d-flex justify-content-between align-items-center playlist-button list-group-item-action")
       .attr({
         "data-playlist-id": playlist.id,
         "data-playlist-uri": playlist.uri
       })
       .text(playlist.name)
-      .append(`<span class="badge badge-danger badge-pill">${playlist.tracks.total}</span>`)
+      .append(`<span class="badge badge-success badge">${playlist.tracks.total}</span>`)
       .appendTo($playlistInfo);
   });
 }
@@ -276,13 +276,13 @@ function printTrackInfo(trackArray, playlistContextUri) {
       .join(", ");
 
     $("<button>")
-      .addClass("list-group-item d-flex justify-content-between align-items-center track-button list-group-item-action")
+      .addClass("bg-dark text-light list-group-item d-flex justify-content-between align-items-center track-button list-group-item-action")
       .text(`${artists} - ${track.name}`)
       .attr({
         "data-track-uri": track.uri,
         "data-context": playlistContextUri
       })
-      .append(`<span class="badge badge-danger badge-pill">${moment(track.duration_ms, "x").format("mm:ss")}</span>`)
+      .append(`<span class="badge badge-success badge">${moment(track.duration_ms, "x").format("mm:ss")}</span>`)
       .appendTo($trackInfo);
   });
 }
@@ -311,7 +311,7 @@ function selectTrack() {
       console.log(response);
       setTimeout(getCurrentSong, 1500);
       $("#play-button").attr("data-state", "play")
-      $("#play-button > i").removeClass("fa-play").addClass("fa-pause");
+      $("#play-button > i").removeClass("fa-play-circle").addClass("fa-pause-circle");
     })
     .catch(function (err) {
       console.log(err);
@@ -332,7 +332,7 @@ function nextSong() {
       console.log(response);
       setTimeout(getCurrentSong, 1500);
       $("#play-button").attr("data-state", "play")
-      $("#play-button > i").removeClass("fa-play").addClass("fa-pause");
+      $("#play-button > i").removeClass("fa-play-circle").addClass("fa-pause-circle");
     });
 }
 
@@ -350,7 +350,7 @@ function prevSong() {
       console.log(response);
       setTimeout(getCurrentSong, 1500);
       $("#play-button").attr("data-state", "play")
-      $("#play-button > i").removeClass("fa-play").addClass("fa-pause");
+      $("#play-button > i").removeClass("fa-play-circle").addClass("fa-pause-circle");
     });
 }
 
@@ -369,7 +369,7 @@ function resumeSong() {
       console.log(response);
       setTimeout(getCurrentSong, 1500);
       $("#play-button").attr("data-state", "play")
-      $("#play-button > i").removeClass("fa-play").addClass("fa-pause");
+      $("#play-button > i").removeClass("fa-play-circle").addClass("fa-pause-circle");
     });
 }
 
@@ -387,7 +387,7 @@ function pauseSong() {
     .then(function (response) {
       console.log(response);
       $("#play-button").attr("data-state", "pause")
-      $("#play-button > i").removeClass("fa-pause").addClass("fa-play");
+      $("#play-button > i").removeClass("fa-pause-circle").addClass("fa-play-circle");
     });
 }
 
@@ -483,7 +483,7 @@ $(document)
     
     
     // get categories on load
-    getCategories();
+    // getCategories();
     $("#user-playlists").on("click", getUserPlaylists);
     $("#featured-playlists").on("click", getFeaturedPlaylists);
     $("#play-button").on("click", function () {
