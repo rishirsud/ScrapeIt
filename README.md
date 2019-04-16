@@ -24,11 +24,6 @@ Focus on subreddit /r/listentothis at first due to formatting of the post titles
 7. generate playlist
 8. show playlist
 
-## Contributors
-- Rishabh Goel 
-- Jonah Karew
-- Rishi Sud
-
 ### [Deployed location](https://jonahkarew.github.io/project1_master/)
 
 ## Upcoming Improvements
