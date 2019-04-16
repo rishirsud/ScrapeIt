@@ -49,7 +49,7 @@ function searchTrackUri(index) {
   let searchType = "track"; /* album, artist, playlist, track*/
   console.log(query);
 
-  if (query.includes("#")) {
+  if (query.includes("#") || query.includes("\\") || query.includes("é") ) {
     index++;
     return searchTrackUri(index)
   }
