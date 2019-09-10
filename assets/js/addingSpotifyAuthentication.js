@@ -1,5 +1,5 @@
-// const spotify_CLIENT = "92a0946328c54acba24e465dbfd53650";
-const spotify_CLIENT = "bec3519af734411885a23e2440879e5c";
+const spotify_CLIENT = "92a0946328c54acba24e465dbfd53650";
+// const spotify_CLIENT = "bec3519af734411885a23e2440879e5c";
 
 
 let stateKey = 'spotify_auth_state';
@@ -160,7 +160,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 function spotifyLogin() {
   const client_id = spotify_CLIENT; // Your client id
   console.log(location.hostname);
-  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://127.0.0.1:5500/" : 'https://jonahkarew.github.io/project1_master/';
+  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://127.0.0.1:5500/" : 'https://jonahkarew.github.io/ScrapeIt/';
 
   // generate random state key
   const state = generateRandomString(16);
