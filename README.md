@@ -24,7 +24,7 @@ Focus on subreddit /r/listentothis at first due to formatting of the post titles
 7. generate playlist
 8. show playlist
 
-### [Deployed location](https://jonahkarew.github.io/project1_master/)
+### [Deployed location](https://jonahkarew.github.io/ScrapeIt/)
 
 ## Upcoming Improvements
 - Include more subreddits with additional buttons or menu
