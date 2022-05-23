@@ -1,5 +1,6 @@
 const spotify_CLIENT = "92a0946328c54acba24e465dbfd53650";
 // const spotify_CLIENT = "bec3519af734411885a23e2440879e5c";
+const spotify_CLIENT = "a192be5079c84f01bc02bb156407c210";
 
 
 let stateKey = 'spotify_auth_state';
